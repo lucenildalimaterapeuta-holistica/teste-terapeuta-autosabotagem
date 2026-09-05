@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página 14 — Sobre Você</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lilas-claro: #EDE7FB;
+    --lilas-medio: #D9CCF0;
+    --dourado: #C9A227;
+    --dourado-claro: #E8D9A8;
+    --branco: #FFFFFF;
+    --texto-escuro: #4A4458;
+    --texto-suave: #7A7290;
+  }
+
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  body{
+    font-family:'Poppins', sans-serif;
+    background:#F5F2FB;
+    display:flex;
+    justify-content:center;
+    padding:40px 20px;
+  }
+
+  .pagina{
+    width:100%;
+    max-width:720px;
+    min-height:1080px;
+    background: linear-gradient(180deg, var(--branco) 0%, var(--lilas-claro) 100%);
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(140,110,200,0.15);
+    padding:60px 50px 40px 50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .pagina::before{
+    content:"";
+    position:absolute;
+    top:-80px;
+    right:-80px;
+    width:220px;
+    height:220px;
+    background:radial-gradient(circle, var(--dourado-claro) 0%, transparent 70%);
+    opacity:0.5;
+  }
+
+  .pagina::after{
+    content:"";
+    position:absolute;
+    bottom:-100px;
+    left:-100px;
+    width:260px;
+    height:260px;
+    background:radial-gradient(circle, var(--lilas-medio) 0%, transparent 70%);
+    opacity:0.6;
+  }
+
+  .foto-wrapper{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    padding:6px;
+    background: linear-gradient(135deg, var(--dourado) 0%, var(--lilas-medio) 100%);
+    margin-bottom:24px;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .foto-placeholder{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background: linear-gradient(135deg, var(--lilas-claro) 0%, var(--branco) 100%);
+    border:4px solid var(--branco);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Playfair Display', serif;
+    font-size:42px;
+    color:var(--dourado);
+    font-weight:600;
+  }
+
+  .titulo-secao{
+    font-family:'Playfair Display', serif;
+    font-size:32px;
+    color:var(--texto-escuro);
+    font-weight:600;
+    letter-spacing:0.5px;
+    margin-bottom:4px;
+    z-index:2;
+    text-align:center;
+  }
+
+  .subtitulo-secao{
+    font-size:14px;
+    color:var(--dourado);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:30px;
+    font-weight:500;
+    z-index:2;
+  }
+
+  .barra-progressao{
+    width:100%;
+    max-width:400px;
+    height:4px;
+    border-radius:10px;
+    background: var(--lilas-medio);
+    margin:26px 0;
+    position:relative;
+    overflow:hidden;
+    z-index:2;
+  }
+
+  .barra-progressao::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background: linear-gradient(90deg, var(--dourado) 0%, var(--dourado-claro) 100%);
+    border-radius:10px;
+  }
+
+  .bloco{
+    width:100%;
+    background: rgba(255,255,255,0.65);
+    border:1px solid var(--lilas-medio);
+    border-radius:14px;
+    padding:24px 28px;
+    margin-bottom:22px;
+    z-index:2;
+    backdrop-filter: blur(2px);
+  }
+
+  .bloco-titulo{
+    font-family:'Playfair Display', serif;
+    font-size:18px;
+    color:var(--texto-escuro);
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .bloco-titulo .icone{
+    color:var(--dourado);
+    font-size:18px;
+  }
+
+  .bloco-texto{
+    font-size:14.5px;
+    line-height:1.75;
+    color:var(--texto-suave);
+    font-weight:300;
+  }
+
+  .bloco-texto strong{
+    color:var(--texto-escuro);
+    font-weight:500;
+  }
+
+  .contatos{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .contato-item{
+    font-size:14.5px;
+    color:var(--texto-suave);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .contato-item span.label{
+    color:var(--dourado);
+    font-weight:600;
+    min-width:90px;
+  }
+
+  .cta-wrapper{
+    width:100%;
+    margin-top:10px;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .cta-texto{
+    font-size:14px;
+    color:var(--texto-suave);
+    text-align:center;
+    margin-bottom:16px;
+    line-height:1.6;
+    max-width:480px;
+  }
+
+  .cta-botao{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    width:100%;
+    max-width:420px;
+    padding:18px 24px;
+    background: linear-gradient(135deg, var(--dourado) 0%, #B8860B 100%);
+    color:var(--branco);
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:0.3px;
+    text-decoration:none;
+    border-radius:50px;
+    box-shadow:0 10px 25px rgba(201,162,39,0.35);
+    transition:transform 0.2s ease;
+  }
+
+  .cta-botao:hover{
+    transform:translateY(-2px);
+  }
+
+  .rodape{
+    margin-top:36px;
+    padding-top:18px;
+    border-top:1px solid var(--lilas-medio);
+    width:100%;
+    text-align:center;
+    z-index:2;
+  }
+
+  .rodape-nome{
+    font-family:'Playfair Display', serif;
+    font-size:15px;
+    color:var(--texto-escuro);
+    font-weight:600;
+  }
+
+  .rodape-cargo{
+    font-size:12px;
+    color:var(--dourado);
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    margin-top:2px;
+  }
+
+  @media print{
+    body{ background:white; padding:0; }
+    .pagina{ box-shadow:none; border-radius:0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina">
+
+  <div class="foto-wrapper">
+    <div class="foto-placeholder">LL</div>
+  </div>
+
+  <div class="titulo-secao">Quem Sou</div>
+  <div class="subtitulo-secao">Sobre a Terapeuta</div>
+
+  <div class="barra-progressao"></div>
+
+  <div class="bloco">
+    <div class="bloco-titulo"><span class="icone">✦</span> Minha Trajetória</div>
+    <div class="bloco-texto">
+      Sou <strong>Lucenilda Lima</strong>, mãe de três filhos, graduanda em Serviço Social,
+      pós-graduada em Neuropsicologia e com extensão em Terapia de Reprocessamento Generativo (TRG).
+      Minha jornada profissional nasce de uma escuta atenta e genuína ao sofrimento humano,
+      unindo fundamentos da Terapia Cognitivo-Comportamental, acolhimento emocional profundo
+      e uma perspectiva sistêmica sobre os padrões que carregamos.
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-titulo"><span class="icone">✦</span> Minha Abordagem</div>
+    <div class="bloco-texto">
+      Acredito que cada ciclo de sabotagem carrega, dentro de si, uma criança que um dia precisou
+      se proteger. Meu trabalho é criar um espaço seguro para que essa história seja compreendida,
+      acolhida e, finalmente, transformada — sem julgamento, no seu tempo, com profundidade e cuidado.
+    </div>
+  </div>
+
+  <div class="barra-progressao"></div>
+
+  <div class="bloco">
+    <div class="bloco-titulo"><span class="icone">✦</span> Vamos Nos Conectar</div>
+    <div class="contatos">
+      <div class="contato-item"><span class="label">Instagram:</span> @lucenildalimaterapeuta</div>
+      <div class="contato-item"><span class="label">Site:</span> lucenildalimaterapeuta.com.br</div>
+      <div class="contato-item"><span class="label">WhatsApp:</span> +55 68 99938-5087</div>
+    </div>
+  </div>
+
+  <div class="cta-wrapper">
+    <div class="cta-texto">
+      Este é apenas o começo. Se algo aqui tocou você profundamente,
+      convido você a se aprofundar ainda mais nesse processo de cura.
+    </div>
+
+    <a href="https://mpago.la/2LBpsCi" class="cta-botao" target="_blank">
+      Quero Participar da Roda de Acolhimento da Criança Interior Ferida
+    </a>
+  </div>
+
+  <div class="rodape">
+    <div class="rodape-nome">Lucenilda Lima</div>
+    <div class="rodape-cargo">Terapeuta Facilitadora Sistêmica</div>
+  </div>
+
+</div>
+
+</body>
+</html>
