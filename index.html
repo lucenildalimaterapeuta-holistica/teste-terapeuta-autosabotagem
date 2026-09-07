@@ -70,7 +70,7 @@
             margin-bottom: 50px;
         }
 
-        .btn-primary {
+        .btn {
             background: linear-gradient(135deg, #c9956f 0%, #b8845f 100%);
             color: white;
             padding: 18px 50px;
@@ -85,10 +85,21 @@
             letter-spacing: 1px;
         }
 
-        .btn-primary:hover {
+        .btn:hover {
             background: linear-gradient(135deg, #b8845f 0%, #a7734f 100%);
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(201, 149, 111, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e8dcc8;
+            color: #8b6f47;
+            padding: 15px 40px;
+            font-size: 1em;
+        }
+
+        .btn-secondary:hover {
+            background: #d4c4b0;
         }
 
         /* INTRODUÇÃO */
@@ -359,28 +370,6 @@
             gap: 20px;
         }
 
-        .btn-secondary {
-            background: #e8dcc8;
-            color: #8b6f47;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1em;
-        }
-
-        .btn-secondary:hover {
-            background: #d4c4b0;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
         .rodape {
             text-align: center;
             padding: 30px;
@@ -395,7 +384,7 @@
             .capa h2 { font-size: 1.1em; }
             .bloco-perguntas { padding: 25px; }
             .botoes-navegacao { flex-direction: column; }
-            .btn-secondary, .btn-primary { width: 100%; }
+            .btn, .btn-secondary { width: 100%; }
             .foto-container img { width: 200px; height: 200px; }
         }
     </style>
@@ -408,7 +397,7 @@
                 <h1>Terapeuta, qual seu nível de autosabotagem?</h1>
                 <h2>Descubra os ciclos que limitam sua prática terapêutica e transforme seu potencial</h2>
                 <p>Um rastreio terapêutico completo para terapeutas</p>
-                <button class="btn-primary" onclick="irParaPagina('introducao')">Quero iniciar meu teste</button>
+                <button class="btn" onclick="mudarPagina('introducao')">Quero iniciar meu teste</button>
             </div>
         </div>
 
@@ -424,8 +413,8 @@
                     <p>Através de 12 perguntas estratégicas e aprofundadas, você descobrirá em qual dos três ciclos de autosabotagem terapêutica você está inserida. Cada ciclo tem características únicas, gatilhos específicos e, mais importante, <strong>caminhos claros para transformação.</strong></p>
                 </div>
                 <div class="botoes-navegacao">
-                    <button class="btn-secondary" onclick="irParaPagina('capa')">Voltar</button>
-                    <button class="btn-primary" onclick="irParaPagina('bloco1')">Começar o Teste</button>
+                    <button class="btn btn-secondary" onclick="mudarPagina('capa')">Voltar</button>
+                    <button class="btn" onclick="mudarPagina('bloco1')">Começar o Teste</button>
                 </div>
             </div>
         </div>
@@ -472,8 +461,8 @@
                 </div>
 
                 <div class="botoes-navegacao">
-                    <button class="btn-secondary" onclick="irParaPagina('introducao')">Voltar</button>
-                    <button class="btn-primary" onclick="validarBloco('bloco2')">Próximo Bloco</button>
+                    <button class="btn btn-secondary" onclick="mudarPagina('introducao')">Voltar</button>
+                    <button class="btn" onclick="mudarPagina('bloco2')">Próximo Bloco</button>
                 </div>
             </div>
         </div>
@@ -520,8 +509,8 @@
                 </div>
 
                 <div class="botoes-navegacao">
-                    <button class="btn-secondary" onclick="irParaPagina('bloco1')">Voltar</button>
-                    <button class="btn-primary" onclick="validarBloco('bloco3')">Próximo Bloco</button>
+                    <button class="btn btn-secondary" onclick="mudarPagina('bloco1')">Voltar</button>
+                    <button class="btn" onclick="mudarPagina('bloco3')">Próximo Bloco</button>
                 </div>
             </div>
         </div>
@@ -568,8 +557,8 @@
                 </div>
 
                 <div class="botoes-navegacao">
-                    <button class="btn-secondary" onclick="irParaPagina('bloco2')">Voltar</button>
-                    <button class="btn-primary" onclick="calcularResultado()">Ver Resultado</button>
+                    <button class="btn btn-secondary" onclick="mudarPagina('bloco2')">Voltar</button>
+                    <button class="btn" onclick="calcularResultado()">Ver Resultado</button>
                 </div>
             </div>
         </div>
@@ -584,8 +573,8 @@
                     Analisando seus resultados...
                 </div>
                 <div class="botoes-navegacao">
-                    <button class="btn-secondary" onclick="irParaPagina('bloco3')">Voltar</button>
-                    <button class="btn-primary" onclick="irParaPagina('final')">Próximo Passo</button>
+                    <button class="btn btn-secondary" onclick="mudarPagina('bloco3')">Voltar</button>
+                    <button class="btn" onclick="mudarPagina('final')">Próximo Passo</button>
                 </div>
             </div>
         </div>
@@ -594,5 +583,21 @@
         <div id="page-final" class="page">
             <div class="pagina-final">
                 <div class="foto-container">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyM
+                    <img src="download.jpg" alt="Lucenilda Lima" style="width: 250px; height: 250px; border-radius: 20px; object-fit: cover; box-shadow: 0 10px 30px rgba(201, 149, 111, 0.2); border: 5px solid #d4a574;">
+                </div>
+
+                <div class="bio">
+                    <h3>Lucenilda Lima</h3>
+                    <p><strong>Terapeuta Facilitadora Sistêmica</strong></p>
+                    <p>Sou mãe atípica de três filhos e dedico minha vida a conduzir mulheres ao seu despertar, chamado e liberdade emocional. Acredito profundamente que você merece viver uma vida autêntica, plena e livre dos ciclos que a aprisionam.</p>
+
+                    <h4 style="color: #8b6f47; margin-top: 25px; margin-bottom: 15px;">Minha Abordagem:</h4>
+                    <ul>
+                        <li>Terapia Cognitivo-Comportamental (TCC)</li>
+                        <li>Terapia de Reprocessamento Generativo</li>
+                        <li>Acolhimento Emocional Genuíno</li>
+                        <li>Perspectiva Sistêmica</li>
+                    </ul>
+
+                    <h4 style="color: #8b6f47; margin-top: 25px; margin-bottom: 15px;">Min
 
