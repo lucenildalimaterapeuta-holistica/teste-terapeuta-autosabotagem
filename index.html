@@ -1,335 +1,750 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Página 14 — Sobre Você</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --lilas-claro: #EDE7FB;
-    --lilas-medio: #D9CCF0;
-    --dourado: #C9A227;
-    --dourado-claro: #E8D9A8;
-    --branco: #FFFFFF;
-    --texto-escuro: #4A4458;
-    --texto-suave: #7A7290;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terapeuta, qual seu nível de autosabotagem?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
+        :root {
+            --bege-claro: #F5EFE7;
+            --rosa-terracota: #D4A5A5;
+            --dourado-claro: #E8D5B7;
+            --branco: #FFFFFF;
+            --texto-escuro: #4A4A4A;
+            --texto-claro: #7A7A7A;
+        }
 
-  body{
-    font-family:'Poppins', sans-serif;
-    background:#F5F2FB;
-    display:flex;
-    justify-content:center;
-    padding:40px 20px;
-  }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--bege-claro) 0%, var(--branco) 100%);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-  .pagina{
-    width:100%;
-    max-width:720px;
-    min-height:1080px;
-    background: linear-gradient(180deg, var(--branco) 0%, var(--lilas-claro) 100%);
-    border-radius:18px;
-    box-shadow:0 20px 50px rgba(140,110,200,0.15);
-    padding:60px 50px 40px 50px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-  }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--branco);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(212, 165, 165, 0.15);
+            overflow: hidden;
+        }
 
-  .pagina::before{
-    content:"";
-    position:absolute;
-    top:-80px;
-    right:-80px;
-    width:220px;
-    height:220px;
-    background:radial-gradient(circle, var(--dourado-claro) 0%, transparent 70%);
-    opacity:0.5;
-  }
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, var(--rosa-terracota) 0%, var(--dourado-claro) 100%);
+            padding: 60px 40px;
+            text-align: center;
+            color: var(--branco);
+        }
 
-  .pagina::after{
-    content:"";
-    position:absolute;
-    bottom:-100px;
-    left:-100px;
-    width:260px;
-    height:260px;
-    background:radial-gradient(circle, var(--lilas-medio) 0%, transparent 70%);
-    opacity:0.6;
-  }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
 
-  .foto-wrapper{
-    width:170px;
-    height:170px;
-    border-radius:50%;
-    padding:6px;
-    background: linear-gradient(135deg, var(--dourado) 0%, var(--lilas-medio) 100%);
-    margin-bottom:24px;
-    z-index:2;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
 
-  .foto-placeholder{
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    background: linear-gradient(135deg, var(--lilas-claro) 0%, var(--branco) 100%);
-    border:4px solid var(--branco);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Playfair Display', serif;
-    font-size:42px;
-    color:var(--dourado);
-    font-weight:600;
-  }
+        /* CONTEÚDO */
+        .content {
+            padding: 60px 40px;
+        }
 
-  .titulo-secao{
-    font-family:'Playfair Display', serif;
-    font-size:32px;
-    color:var(--texto-escuro);
-    font-weight:600;
-    letter-spacing:0.5px;
-    margin-bottom:4px;
-    z-index:2;
-    text-align:center;
-  }
+        .intro-text {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--texto-claro);
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
 
-  .subtitulo-secao{
-    font-size:14px;
-    color:var(--dourado);
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:30px;
-    font-weight:500;
-    z-index:2;
-  }
+        /* BARRA DE PROGRESSÃO */
+        .progress-container {
+            margin-bottom: 40px;
+        }
 
-  .barra-progressao{
-    width:100%;
-    max-width:400px;
-    height:4px;
-    border-radius:10px;
-    background: var(--lilas-medio);
-    margin:26px 0;
-    position:relative;
-    overflow:hidden;
-    z-index:2;
-  }
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            color: var(--texto-claro);
+            font-weight: 600;
+        }
 
-  .barra-progressao::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-    background: linear-gradient(90deg, var(--dourado) 0%, var(--dourado-claro) 100%);
-    border-radius:10px;
-  }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bege-claro);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
 
-  .bloco{
-    width:100%;
-    background: rgba(255,255,255,0.65);
-    border:1px solid var(--lilas-medio);
-    border-radius:14px;
-    padding:24px 28px;
-    margin-bottom:22px;
-    z-index:2;
-    backdrop-filter: blur(2px);
-  }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--rosa-terracota) 0%, var(--dourado-claro) 100%);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
 
-  .bloco-titulo{
-    font-family:'Playfair Display', serif;
-    font-size:18px;
-    color:var(--texto-escuro);
-    margin-bottom:10px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
+        /* BLOCOS DE PERGUNTAS */
+        .question-block {
+            background: linear-gradient(135deg, rgba(232, 213, 183, 0.3) 0%, rgba(212, 165, 165, 0.1) 100%);
+            border: 2px solid var(--dourado-claro);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
 
-  .bloco-titulo .icone{
-    color:var(--dourado);
-    font-size:18px;
-  }
+        .question-block:hover {
+            box-shadow: 0 8px 20px rgba(212, 165, 165, 0.2);
+            transform: translateY(-2px);
+        }
 
-  .bloco-texto{
-    font-size:14.5px;
-    line-height:1.75;
-    color:var(--texto-suave);
-    font-weight:300;
-  }
+        .question-number {
+            display: inline-block;
+            background: var(--rosa-terracota);
+            color: var(--branco);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
 
-  .bloco-texto strong{
-    color:var(--texto-escuro);
-    font-weight:500;
-  }
+        .question-text {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--texto-escuro);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
 
-  .contatos{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-  }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-  .contato-item{
-    font-size:14.5px;
-    color:var(--texto-suave);
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
+        .option-label {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background: var(--branco);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
 
-  .contato-item span.label{
-    color:var(--dourado);
-    font-weight:600;
-    min-width:90px;
-  }
+        .option-label:hover {
+            background: var(--bege-claro);
+            border-color: var(--dourado-claro);
+        }
 
-  .cta-wrapper{
-    width:100%;
-    margin-top:10px;
-    z-index:2;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-  }
+        .option-label input[type="radio"] {
+            margin-right: 15px;
+            margin-top: 3px;
+            cursor: pointer;
+            accent-color: var(--rosa-terracota);
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
 
-  .cta-texto{
-    font-size:14px;
-    color:var(--texto-suave);
-    text-align:center;
-    margin-bottom:16px;
-    line-height:1.6;
-    max-width:480px;
-  }
+        .option-label input[type="radio"]:checked + span {
+            color: var(--rosa-terracota);
+            font-weight: 600;
+        }
 
-  .cta-botao{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    width:100%;
-    max-width:420px;
-    padding:18px 24px;
-    background: linear-gradient(135deg, var(--dourado) 0%, #B8860B 100%);
-    color:var(--branco);
-    font-size:15px;
-    font-weight:600;
-    letter-spacing:0.3px;
-    text-decoration:none;
-    border-radius:50px;
-    box-shadow:0 10px 25px rgba(201,162,39,0.35);
-    transition:transform 0.2s ease;
-  }
+        .option-label input[type="radio"]:checked {
+            border-color: var(--rosa-terracota);
+        }
 
-  .cta-botao:hover{
-    transform:translateY(-2px);
-  }
+        /* BOTÕES */
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            justify-content: center;
+        }
 
-  .rodape{
-    margin-top:36px;
-    padding-top:18px;
-    border-top:1px solid var(--lilas-medio);
-    width:100%;
-    text-align:center;
-    z-index:2;
-  }
+        .btn {
+            padding: 16px 40px;
+            font-size: 1em;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
 
-  .rodape-nome{
-    font-family:'Playfair Display', serif;
-    font-size:15px;
-    color:var(--texto-escuro);
-    font-weight:600;
-  }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--rosa-terracota) 0%, var(--dourado-claro) 100%);
+            color: var(--branco);
+            box-shadow: 0 8px 20px rgba(212, 165, 165, 0.3);
+        }
 
-  .rodape-cargo{
-    font-size:12px;
-    color:var(--dourado);
-    letter-spacing:1.2px;
-    text-transform:uppercase;
-    margin-top:2px;
-  }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(212, 165, 165, 0.4);
+        }
 
-  @media print{
-    body{ background:white; padding:0; }
-    .pagina{ box-shadow:none; border-radius:0; }
-  }
-</style>
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: var(--bege-claro);
+            color: var(--texto-escuro);
+            border: 2px solid var(--dourado-claro);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dourado-claro);
+        }
+
+        /* SEÇÕES OCULTAS */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESULTADO */
+        .result-container {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .result-title {
+            font-size: 2em;
+            color: var(--rosa-terracota);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .result-score {
+            font-size: 3em;
+            color: var(--dourado-claro);
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .result-description {
+            background: var(--bege-claro);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            line-height: 1.8;
+            color: var(--texto-claro);
+        }
+
+        .profile-name {
+            font-size: 1.8em;
+            color: var(--rosa-terracota);
+            font-weight: 700;
+            margin: 30px 0 20px 0;
+        }
+
+        .profile-analysis {
+            text-align: left;
+            background: linear-gradient(135deg, rgba(232, 213, 183, 0.2) 0%, rgba(212, 165, 165, 0.1) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--rosa-terracota);
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+
+        .profile-section {
+            margin-bottom: 25px;
+        }
+
+        .profile-section h3 {
+            color: var(--rosa-terracota);
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .profile-section p {
+            color: var(--texto-claro);
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--bege-claro);
+            padding: 40px;
+            text-align: center;
+            color: var(--texto-claro);
+            border-top: 2px solid var(--dourado-claro);
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .about-section {
+            background: linear-gradient(135deg, rgba(232, 213, 183, 0.2) 0%, rgba(212, 165, 165, 0.1) 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .about-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            margin: 0 auto 25px;
+            object-fit: cover;
+            border: 5px solid var(--dourado-claro);
+        }
+
+        .about-name {
+            font-size: 1.5em;
+            color: var(--rosa-terracota);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .about-bio {
+            color: var(--texto-claro);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        .contact-info a {
+            color: var(--rosa-terracota);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--dourado-claro);
+        }
+
+        .specialties {
+            text-align: left;
+            background: var(--branco);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid var(--rosa-terracota);
+        }
+
+        .specialties h4 {
+            color: var(--rosa-terracota);
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .specialties ul {
+            list-style: none;
+            color: var(--texto-claro);
+        }
+
+        .specialties li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .specialties li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--rosa-terracota);
+            font-weight: 700;
+        }
+
+        .cta-button-container {
+            margin: 40px 0;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--rosa-terracota) 0%, var(--dourado-claro) 100%);
+            color: var(--branco);
+            padding: 20px 50px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 12px 30px rgba(212, 165, 165, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(212, 165, 165, 0.5);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .question-block {
+                padding: 20px;
+            }
+
+            .result-score {
+                font-size: 2.2em;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .about-photo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Terapeuta, qual seu nível de autosabotagem?</h1>
+            <p>Descubra os ciclos que limitam sua prática terapêutica e transforme seu potencial</p>
+        </div>
 
-<div class="pagina">
+        <!-- CONTEÚDO PRINCIPAL -->
+        <div class="content">
 
-  <div class="foto-wrapper">
-    <div class="foto-placeholder">LL</div>
-  </div>
+            <!-- SEÇÃO INICIAL -->
+            <div id="intro-section" class="section active">
+                <div class="intro-text">
+                    <p>Querida terapeuta,</p>
+                    <p style="margin-top: 20px;">Este rastreio foi desenvolvido especialmente para você – profissional que dedica sua vida a acolher, transformar e libertar outras pessoas. Mas antes de tudo, é fundamental que você reconheça: <strong>você também merece esse acolhimento, essa transformação e essa liberdade.</strong></p>
+                    <p style="margin-top: 20px;">Os ciclos de autosabotagem terapêutica são padrões inconscientes que limitam sua prática, sua energia, sua confiança e sua capacidade de impactar verdadeiramente seus clientes.</p>
+                    <p style="margin-top: 20px;"><strong>Este rastreio não é um julgamento. É um convite à consciência.</strong></p>
+                </div>
 
-  <div class="titulo-secao">Quem Sou</div>
-  <div class="subtitulo-secao">Sobre a Terapeuta</div>
+                <div class="button-container">
+                    <button class="btn btn-primary" onclick="startTest()">Quero iniciar meu teste</button>
+                </div>
+            </div>
 
-  <div class="barra-progressao"></div>
+            <!-- BLOCO 1: COMPETÊNCIA E CONFIANÇA -->
+            <div id="block1-section" class="section">
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Progresso do Teste</span>
+                        <span id="progress-text">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
 
-  <div class="bloco">
-    <div class="bloco-titulo"><span class="icone">✦</span> Minha Trajetória</div>
-    <div class="bloco-texto">
-      Sou <strong>Lucenilda Lima</strong>, mãe de três filhos, graduanda em Serviço Social,
-      pós-graduada em Neuropsicologia e com extensão em Terapia de Reprocessamento Generativo (TRG).
-      Minha jornada profissional nasce de uma escuta atenta e genuína ao sofrimento humano,
-      unindo fundamentos da Terapia Cognitivo-Comportamental, acolhimento emocional profundo
-      e uma perspectiva sistêmica sobre os padrões que carregamos.
-    </div>
-  </div>
+                <h2 style="color: var(--rosa-terracota); margin-bottom: 30px; text-align: center;">Bloco 1: Competência e Confiança Profissional</h2>
 
-  <div class="bloco">
-    <div class="bloco-titulo"><span class="icone">✦</span> Minha Abordagem</div>
-    <div class="bloco-texto">
-      Acredito que cada ciclo de sabotagem carrega, dentro de si, uma criança que um dia precisou
-      se proteger. Meu trabalho é criar um espaço seguro para que essa história seja compreendida,
-      acolhida e, finalmente, transformada — sem julgamento, no seu tempo, com profundidade e cuidado.
-    </div>
-  </div>
+                <!-- Pergunta 1 -->
+                <div class="question-block">
+                    <div class="question-number">1</div>
+                    <div class="question-text">Quando um cliente relata melhora significativa em sua vida após trabalhar comigo, minha reação imediata é:</div>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="0">
+                            <span>Sinto alegria genuína e reconheço meu papel nessa transformação</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="1">
+                            <span>Penso que foi sorte dele, que ele teria melhorado de qualquer forma</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="2">
+                            <span>Fico com medo de não conseguir manter esse resultado nas próximas sessões</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q1" value="3">
+                            <span>Sinto alívio, mas logo duvido se realmente fiz diferença</span>
+                        </label>
+                    </div>
+                </div>
 
-  <div class="barra-progressao"></div>
+                <!-- Pergunta 2 -->
+                <div class="question-block">
+                    <div class="question-number">2</div>
+                    <div class="question-text">Quando recebo feedback crítico de um cliente ou supervisor, minha tendência é:</div>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q2" value="0">
+                            <span>Refletir sobre o feedback e usá-lo para crescimento</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q2" value="1">
+                            <span>Sentir que sou incompetente e questionar minha capacidade como terapeuta</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q2" value="2">
+                            <span>Ignorar o feedback e focar apenas nos clientes que me validam</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q2" value="3">
+                            <span>Ficar obcecada em "consertar" tudo imediatamente, mesmo que não seja necessário</span>
+                        </label>
+                    </div>
+                </div>
 
-  <div class="bloco">
-    <div class="bloco-titulo"><span class="icone">✦</span> Vamos Nos Conectar</div>
-    <div class="contatos">
-      <div class="contato-item"><span class="label">Instagram:</span> @lucenildalimaterapeuta</div>
-      <div class="contato-item"><span class="label">Site:</span> lucenildalimaterapeuta.com.br</div>
-      <div class="contato-item"><span class="label">WhatsApp:</span> +55 68 99938-5087</div>
-    </div>
-  </div>
+                <!-- Pergunta 3 -->
+                <div class="question-block">
+                    <div class="question-number">3</div>
+                    <div class="question-text">Diante de um caso complexo ou desafiador, meu primeiro pensamento é:</div>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q3" value="0">
+                            <span>Como posso abordar isso de forma ética e eficaz?</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q3" value="1">
+                            <span>Não sou boa o suficiente para este cliente</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q3" value="2">
+                            <span>Preciso ter todas as respostas antes de começar</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q3" value="3">
+                            <span>Vou buscar supervisão e apoio</span>
+                        </label>
+                    </div>
+                </div>
 
-  <div class="cta-wrapper">
-    <div class="cta-texto">
-      Este é apenas o começo. Se algo aqui tocou você profundamente,
-      convido você a se aprofundar ainda mais nesse processo de cura.
-    </div>
+                <!-- Pergunta 4 -->
+                <div class="question-block">
+                    <div class="question-number">4</div>
+                    <div class="question-text">Quando penso em minha formação como terapeuta, sinto:</div>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q4" value="0">
+                            <span>Confiança nas ferramentas e conhecimentos que adquiri</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q4" value="1">
+                            <span>Que ainda não aprendi o suficiente, independentemente de quantos cursos faço</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q4" value="2">
+                            <span>Que minha formação foi inadequada ou insuficiente</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q4" value="3">
+                            <span>Medo de que alguém descubra que não sou tão qualificada quanto pareço</span>
+                        </label>
+                    </div>
+                </div>
 
-    <a href="https://mpago.la/2LBpsCi" class="cta-botao" target="_blank">
-      Quero Participar da Roda de Acolhimento da Criança Interior Ferida
-    </a>
-  </div>
+                <div class="button-container">
+                    <button class="btn btn-secondary" onclick="previousBlock()">Voltar</button>
+                    <button class="btn btn-primary" onclick="nextBlock(1)">Próximo</button>
+                </div>
+            </div>
 
-  <div class="rodape">
-    <div class="rodape-nome">Lucenilda Lima</div>
-    <div class="rodape-cargo">Terapeuta Facilitadora Sistêmica</div>
-  </div>
+            <!-- BLOCO 2: ENERGIA E LIMITES -->
+            <div id="block2-section" class="section">
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Progresso do Teste</span>
+                        <span id="progress-text2">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill2"></div>
+                    </div>
+                </div>
 
-</div>
+                <h2 style="color: var(--rosa-terracota); margin-bottom: 30px; text-align: center;">Bloco 2: Energia, Limites e Autocuidado</h2>
 
-</body>
-</html>
+                <!-- Pergunta 5 -->
+                <div class="question-block">
+                    <div class="question-number">5</div>
+                    <div class="question-text">Minha relação com os limites profissionais é:</div>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q5" value="0">
+                            <span>Estabeleço limites claros e os mantenho consistentemente</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q5" value="1">
+                            <span>Tenho dificuldade em dizer "não" e frequentemente trabalho além do horário</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q5" value="2">
+                            <span>Fico ressentida quando clientes não respeitam meus limites</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q5" value="3">
+                            <span>Estabeleço limites rígidos, mas sinto culpa ao aplicá-los</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pergunta 6 -->
+                <div class="question-block">
+                    <div class="question-number">6</div>
+                    <div class="question-text">Quando termina meu dia de atendimentos, geralmente:</div>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q6" value="0">
+                            <span>Sinto-me energizada e com espaço mental para minha vida pessoal</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q6" value="1">
+                            <span>Estou completamente esgotada e levo as histórias dos clientes para casa</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q6" value="2">
+                            <span>Sinto culpa por não ter feito o suficiente durante as sessões</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q6" value="3">
+                            <span>Reviso mentalmente cada sessão, questionando minhas intervenções</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pergunta 7 -->
+                <div class="question-block">
+                    <div class="question-number">7</div>
+                    <div class="question-text">Meu autocuidado é:</div>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q7" value="0">
+                            <span>Uma prioridade genuína em minha vida</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q7" value="1">
+                            <span>Algo que faço apenas quando me sinto culpada por negligenciar</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q7" value="2">
+                            <span>Praticamente inexistente; coloco os clientes sempre em primeiro lugar</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q7" value="3">
+                            <span>Inconsistente; tenho períodos de dedicação seguidos de abandono total</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pergunta 8 -->
+                <div class="question-block">
+                    <div class="question-number">8</div>
+                    <div class="question-text">Quando sinto que estou no meu limite emocional, minha tendência é:</div>
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="q8" value="0">
+                            <span>Comunicar isso e ajustar minha agenda ou buscar apoio</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q8" value="1">
+                            <span>Continuar atendendo normalmente, escondendo meu estado</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q8" value="2">
+                            <span>Cancelar tudo e me isolar</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="q8" value="3">
+                            <span>Aumentar meu trabalho para "distrair" da dor</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button class="btn btn-secondary" onclick="previousBlock()">Voltar</button>
+                    <button class="btn btn-primary" onclick="nextBlock(2)">Próximo</button>
+                </div>
+            </div>
+
+            <!-- BLOCO 3: VALOR E MERECIMENTO -->
+            <div id="block3-section" class="section">
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Progresso do Teste</span>
+                        <span id="progress-text3">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill3"></div>
+                    </div>
+                </div>
+
+                <h2 style="color: var(--rosa-terracota); margin-bottom: 30px; text-align: center;">Bloco
+
