@@ -570,7 +570,7 @@
                 <div class="perfil-analise" id="perfil-analise">Analisando seus resultados...</div>
                 <div class="botoes-navegacao">
                     <button type="button" class="btn btn-secondary" onclick="mudarPagina('bloco3')">Voltar</button>
-                    <button type="button" class="btn" onclick="enviarResultado()">Próximo passo</button>
+                    <button type="button" class="btn" onclick="mudarPagina('final')">Próximo passo</button>
                 </div>
             </div>
         </div>
@@ -621,16 +621,22 @@
     </div>
 
     <script>
-        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyd6TFh2yqhVrGE2CD2Ew4p5yCf6NuvvFeTkVhRvWmeKIy2iY1tGnkAYQcEbYYh4ClB/exec";
+        function mudarPagina(nomePagina) {
+            // Remove a classe active de todas as páginas
+            const todasAsPaginas = document.querySelectorAll('.page');
+            todasAsPaginas.forEach(function(pagina) {
+                pagina.classList.remove('active');
+            });
 
-        function mudarPagina(pagina) {
-            const paginas = document.querySelectorAll(".page");
-            paginas.forEach(p => p.classList.remove("active"));
-            document.getElementById("page-" + pagina).classList.add("active");
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            // Adiciona a classe active à página desejada
+            const paginaDestino = document.getElementById('page-' + nomePagina);
+            if (paginaDestino) {
+                paginaDestino.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                console.error('Página não encontrada: page-' + nomePagina);
+            }
         }
 
-        function calcularResultado() {
-            const respostas = [];
-            for (let i = 1; i <= 12; i
+        function
 
