@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terapeuta, qual seu nível de autosabotagem?</title>
+    <title>Terapeuta, qual seu nível de autossabotagem?</title>
+
     <style>
         * {
             margin: 0;
@@ -12,7 +13,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #f5f1ed 0%, #ffffff 100%);
             color: #4a4a4a;
             line-height: 1.8;
@@ -35,11 +36,17 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* CAPA */
         .capa {
             text-align: center;
             padding: 80px 20px;
@@ -72,7 +79,7 @@
 
         .btn {
             background: linear-gradient(135deg, #c9956f 0%, #b8845f 100%);
-            color: white;
+            color: #ffffff;
             padding: 18px 50px;
             font-size: 1.1em;
             border: none;
@@ -102,40 +109,46 @@
             background: #d4c4b0;
         }
 
-        /* INTRODUÇÃO */
-        .introducao {
-            background: white;
+        .introducao,
+        .bloco-perguntas,
+        .resultado,
+        .pagina-final {
+            background: #ffffff;
             padding: 50px;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .introducao h2 {
+        .introducao h2,
+        .resultado h2 {
             color: #8b6f47;
             font-size: 2em;
             margin-bottom: 30px;
             text-align: center;
         }
 
-        .introducao-texto {
+        .introducao-texto,
+        .perfil-analise,
+        .bio,
+        .contatos {
             background: linear-gradient(135deg, #faf6f0 0%, #f5f1ed 100%);
             padding: 30px;
             border-radius: 15px;
             border-left: 5px solid #c9956f;
             margin-bottom: 30px;
-            color: #4a4a4a;
-            line-height: 1.8;
         }
 
-        .introducao-texto p {
+        .introducao-texto p,
+        .bio p,
+        .contatos p {
             margin-bottom: 15px;
         }
 
+        strong,
         .introducao-texto strong {
             color: #8b6f47;
         }
 
-        /* TESTE */
         .teste-header {
             text-align: center;
             margin-bottom: 40px;
@@ -161,13 +174,6 @@
             background: linear-gradient(90deg, #c9956f 0%, #d4a574 100%);
             transition: width 0.3s ease;
             border-radius: 10px;
-        }
-
-        .bloco-perguntas {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
         .pergunta-item {
@@ -202,19 +208,8 @@
             height: 20px;
         }
 
-        /* RESULTADO */
         .resultado {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             text-align: center;
-        }
-
-        .resultado h2 {
-            color: #8b6f47;
-            font-size: 2em;
-            margin-bottom: 20px;
         }
 
         .score-circle {
@@ -226,7 +221,7 @@
             align-items: center;
             justify-content: center;
             margin: 30px auto;
-            color: white;
+            color: #ffffff;
             font-size: 2.5em;
             font-weight: 700;
             box-shadow: 0 10px 30px rgba(201, 149, 111, 0.3);
@@ -240,22 +235,8 @@
         }
 
         .perfil-analise {
-            background: linear-gradient(135deg, #faf6f0 0%, #f5f1ed 100%);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #c9956f;
-            margin: 30px 0;
             text-align: left;
             color: #4a4a4a;
-            line-height: 1.8;
-        }
-
-        /* PÁGINA FINAL */
-        .pagina-final {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
         }
 
         .foto-container {
@@ -272,14 +253,6 @@
             border: 5px solid #d4a574;
         }
 
-        .bio {
-            background: linear-gradient(135deg, #faf6f0 0%, #f5f1ed 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border-left: 5px solid #c9956f;
-        }
-
         .bio h3 {
             color: #8b6f47;
             margin-bottom: 15px;
@@ -291,12 +264,6 @@
             margin-top: 25px;
             margin-bottom: 15px;
             font-size: 1.1em;
-        }
-
-        .bio p {
-            color: #4a4a4a;
-            margin-bottom: 15px;
-            line-height: 1.8;
         }
 
         .bio ul {
@@ -311,7 +278,7 @@
             position: relative;
         }
 
-        .bio li:before {
+        .bio li::before {
             content: "✓";
             position: absolute;
             left: 0;
@@ -320,33 +287,26 @@
         }
 
         .contatos {
-            background: linear-gradient(135deg, #faf6f0 0%, #f5f1ed 100%);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 40px;
             text-align: center;
-        }
-
-        .contatos p {
-            color: #4a4a4a;
-            margin-bottom: 10px;
+            border-left: none;
         }
 
         .contatos a {
             color: #c9956f;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
         }
 
         .contatos a:hover {
-            color: #8b6f47;
             text-decoration: underline;
         }
 
         .btn-cta-final {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
             background: linear-gradient(135deg, #c9956f 0%, #b8845f 100%);
-            color: white;
+            color: #ffffff;
             padding: 20px 60px;
             font-size: 1.2em;
             border: none;
@@ -357,10 +317,7 @@
             box-shadow: 0 10px 30px rgba(201, 149, 111, 0.3);
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            display: block;
-            margin: 40px auto;
             text-decoration: none;
-            width: fit-content;
         }
 
         .btn-cta-final:hover {
@@ -369,7 +326,6 @@
             box-shadow: 0 15px 40px rgba(201, 149, 111, 0.4);
         }
 
-        /* NAVEGAÇÃO */
         .botoes-navegacao {
             display: flex;
             justify-content: space-between;
@@ -387,24 +343,74 @@
         }
 
         @media (max-width: 768px) {
-            .capa h1 { font-size: 1.8em; }
-            .capa h2 { font-size: 1.1em; }
-            .bloco-perguntas { padding: 25px; }
-            .botoes-navegacao { flex-direction: column; }
-            .btn, .btn-secondary { width: 100%; }
-            .foto-container img { width: 200px; height: 200px; }
+            .container {
+                padding: 20px 12px;
+            }
+
+            .capa {
+                padding: 60px 20px;
+            }
+
+            .capa h1 {
+                font-size: 1.8em;
+            }
+
+            .capa h2 {
+                font-size: 1.1em;
+            }
+
+            .introducao,
+            .bloco-perguntas,
+            .resultado,
+            .pagina-final {
+                padding: 25px;
+            }
+
+            .botoes-navegacao {
+                flex-direction: column;
+            }
+
+            .btn,
+            .btn-secondary {
+                width: 100%;
+            }
+
+            .foto-container img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .btn-cta-final {
+                width: 100%;
+                padding: 18px 20px;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
+
         <!-- PÁGINA 1: CAPA -->
         <div id="page-capa" class="page active">
             <div class="capa">
-                <h1>Terapeuta, qual seu nível de autosabotagem?</h1>
-                <h2>Descubra os ciclos que limitam sua prática terapêutica e transforme seu potencial</h2>
+                <h1>Terapeuta, qual seu nível de autossabotagem?</h1>
+
+                <h2>
+                    Descubra os ciclos que limitam sua prática terapêutica
+                    e transforme seu potencial
+                </h2>
+
                 <p>Um rastreio terapêutico completo para terapeutas</p>
-                <button class="btn" onclick="mudarPagina('introducao')">Quero iniciar meu teste</button>
+
+                <button
+                    type="button"
+                    class="btn"
+                    onclick="mudarPagina('introducao')"
+                >
+                    Quero iniciar meu teste
+                </button>
             </div>
         </div>
 
@@ -412,16 +418,60 @@
         <div id="page-introducao" class="page">
             <div class="introducao">
                 <h2>Bem-vinda ao seu rastreio</h2>
+
                 <div class="introducao-texto">
                     <p>Querida terapeuta,</p>
-                    <p>Este rastreio foi desenvolvido especialmente para você – profissional que dedica sua vida a acolher, transformar e libertar outras pessoas. Mas antes de tudo, é fundamental que você reconheça: <strong>você também merece esse acolhimento, essa transformação e essa liberdade.</strong></p>
-                    <p>Os ciclos de autosabotagem terapêutica são padrões inconscientes que limitam sua prática, sua energia, sua confiança e sua capacidade de impactar verdadeiramente seus clientes.</p>
-                    <p><strong>Este rastreio não é um julgamento. É um convite à consciência.</strong></p>
-                    <p>Através de 12 perguntas estratégicas e aprofundadas, você descobrirá em qual dos três ciclos de autosabotagem terapêutica você está inserida. Cada ciclo tem características únicas, gatilhos específicos e, mais importante, <strong>caminhos claros para transformação.</strong></p>
+
+                    <p>
+                        Este rastreio foi desenvolvido especialmente para você,
+                        profissional que dedica sua vida a acolher, transformar
+                        e libertar outras pessoas. Mas, antes de tudo, é
+                        fundamental que você reconheça:
+                        <strong>
+                            você também merece esse acolhimento, essa
+                            transformação e essa liberdade.
+                        </strong>
+                    </p>
+
+                    <p>
+                        Os ciclos de autossabotagem terapêutica são padrões
+                        inconscientes que limitam sua prática, sua energia,
+                        sua confiança e sua capacidade de impactar
+                        verdadeiramente seus clientes.
+                    </p>
+
+                    <p>
+                        <strong>
+                            Este rastreio não é um julgamento. É um convite à consciência.
+                        </strong>
+                    </p>
+
+                    <p>
+                        Por meio de 12 perguntas estratégicas e aprofundadas,
+                        você descobrirá em qual dos três ciclos de
+                        autossabotagem terapêutica está inserida.
+                        Cada ciclo tem características únicas, gatilhos
+                        específicos e, mais importante,
+                        <strong>caminhos claros para transformação.</strong>
+                    </p>
                 </div>
+
                 <div class="botoes-navegacao">
-                    <button class="btn btn-secondary" onclick="mudarPagina('capa')">Voltar</button>
-                    <button class="btn" onclick="mudarPagina('bloco1')">Começar o Teste</button>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="mudarPagina('capa')"
+                    >
+                        Voltar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn"
+                        onclick="mudarPagina('bloco1')"
+                    >
+                        Começar o teste
+                    </button>
                 </div>
             </div>
         </div>
@@ -430,46 +480,168 @@
         <div id="page-bloco1" class="page">
             <div class="teste-header">
                 <h2>Bloco 1: Competência e Confiança Profissional</h2>
+
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 25%;"></div>
                 </div>
             </div>
+
             <div class="bloco-perguntas">
                 <div class="pergunta-item">
-                    <p>1. Quando um cliente relata melhora significativa em sua vida após trabalhar comigo, minha reação imediata é:</p>
-                    <label><input type="radio" name="q1" value="0"> <span>Sinto alegria genuína e reconheço meu papel nessa transformação</span></label>
-                    <label><input type="radio" name="q1" value="3"> <span>Penso que foi sorte dele, que ele teria melhorado de qualquer forma</span></label>
-                    <label><input type="radio" name="q1" value="2"> <span>Fico com medo de não conseguir manter esse resultado nas próximas sessões</span></label>
-                    <label><input type="radio" name="q1" value="2"> <span>Sinto alívio, mas logo duvido se realmente fiz diferença</span></label>
+                    <p>
+                        1. Quando um cliente relata melhora significativa em
+                        sua vida após trabalhar comigo, minha reação imediata é:
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q1" value="0">
+                        <span>
+                            Sinto alegria genuína e reconheço meu papel nessa transformação
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q1" value="3">
+                        <span>
+                            Penso que foi sorte dele, que ele teria melhorado de qualquer forma
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q1" value="2">
+                        <span>
+                            Fico com medo de não conseguir manter esse resultado nas próximas sessões
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q1" value="2">
+                        <span>
+                            Sinto alívio, mas logo duvido se realmente fiz diferença
+                        </span>
+                    </label>
                 </div>
 
                 <div class="pergunta-item">
-                    <p>2. Quando recebo feedback crítico de um cliente ou supervisor, minha tendência é:</p>
-                    <label><input type="radio" name="q2" value="0"> <span>Refletir sobre o feedback e usá-lo para crescimento</span></label>
-                    <label><input type="radio" name="q2" value="3"> <span>Sentir que sou incompetente e questionar minha capacidade como terapeuta</span></label>
-                    <label><input type="radio" name="q2" value="1"> <span>Ignorar o feedback e focar apenas nos clientes que me validam</span></label>
-                    <label><input type="radio" name="q2" value="2"> <span>Ficar obcecada em "consertar" tudo imediatamente, mesmo que não seja necessário</span></label>
+                    <p>
+                        2. Quando recebo feedback crítico de um cliente ou
+                        supervisor, minha tendência é:
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q2" value="0">
+                        <span>
+                            Refletir sobre o feedback e usá-lo para crescimento
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q2" value="3">
+                        <span>
+                            Sentir que sou incompetente e questionar minha capacidade como terapeuta
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q2" value="1">
+                        <span>
+                            Ignorar o feedback e focar apenas nos clientes que me validam
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q2" value="2">
+                        <span>
+                            Ficar obcecada em “consertar” tudo imediatamente, mesmo que não seja necessário
+                        </span>
+                    </label>
                 </div>
 
                 <div class="pergunta-item">
-                    <p>3. Diante de um caso complexo ou desafiador, meu primeiro pensamento é:</p>
-                    <label><input type="radio" name="q3" value="0"> <span>Como posso abordar isso de forma ética e eficaz?</span></label>
-                    <label><input type="radio" name="q3" value="3"> <span>Não sou boa o suficiente para este cliente</span></label>
-                    <label><input type="radio" name="q3" value="2"> <span>Preciso ter todas as respostas antes de começar</span></label>
-                    <label><input type="radio" name="q3" value="1"> <span>Vou buscar supervisão e apoio</span></label>
+                    <p>
+                        3. Diante de um caso complexo ou desafiador, meu
+                        primeiro pensamento é:
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q3" value="0">
+                        <span>
+                            Como posso abordar isso de forma ética e eficaz?
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q3" value="3">
+                        <span>
+                            Não sou boa o suficiente para este cliente
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q3" value="2">
+                        <span>
+                            Preciso ter todas as respostas antes de começar
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q3" value="1">
+                        <span>
+                            Vou buscar supervisão e apoio
+                        </span>
+                    </label>
                 </div>
 
                 <div class="pergunta-item">
-                    <p>4. Quando penso em minha formação como terapeuta, sinto:</p>
-                    <label><input type="radio" name="q4" value="0"> <span>Confiança nas ferramentas e conhecimentos que adquiri</span></label>
-                    <label><input type="radio" name="q4" value="3"> <span>Que ainda não aprendi o suficiente, independentemente de quantos cursos faço</span></label>
-                    <label><input type="radio" name="q4" value="2"> <span>Que minha formação foi inadequada ou insuficiente</span></label>
-                    <label><input type="radio" name="q4" value="3"> <span>Medo de que alguém descubra que não sou tão qualificada quanto pareço</span></label>
+                    <p>
+                        4. Quando penso em minha formação como terapeuta, sinto:
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q4" value="0">
+                        <span>
+                            Confiança nas ferramentas e conhecimentos que adquiri
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q4" value="3">
+                        <span>
+                            Que ainda não aprendi o suficiente, independentemente de quantos cursos faço
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q4" value="2">
+                        <span>
+                            Que minha formação foi inadequada ou insuficiente
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q4" value="3">
+                        <span>
+                            Medo de que alguém descubra que não sou tão qualificada quanto pareço
+                        </span>
+                    </label>
                 </div>
 
                 <div class="botoes-navegacao">
-                    <button class="btn btn-secondary" onclick="mudarPagina('introducao')">Voltar</button>
-                    <button class="btn" onclick="mudarPagina('bloco2')">Próximo Bloco</button>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="mudarPagina('introducao')"
+                    >
+                        Voltar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn"
+                        onclick="mudarPagina('bloco2')"
+                    >
+                        Próximo bloco
+                    </button>
                 </div>
             </div>
         </div>
@@ -478,46 +650,156 @@
         <div id="page-bloco2" class="page">
             <div class="teste-header">
                 <h2>Bloco 2: Energia, Limites e Autocuidado</h2>
+
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 50%;"></div>
                 </div>
             </div>
+
             <div class="bloco-perguntas">
                 <div class="pergunta-item">
                     <p>5. Minha relação com os limites profissionais é:</p>
-                    <label><input type="radio" name="q5" value="0"> <span>Estabeleço limites claros e os mantenho consistentemente</span></label>
-                    <label><input type="radio" name="q5" value="3"> <span>Tenho dificuldade em dizer "não" e frequentemente trabalho além do horário</span></label>
-                    <label><input type="radio" name="q5" value="1"> <span>Fico ressentida quando clientes não respeitam meus limites</span></label>
-                    <label><input type="radio" name="q5" value="2"> <span>Estabeleço limites rígidos, mas sinto culpa ao aplicá-los</span></label>
+
+                    <label>
+                        <input type="radio" name="q5" value="0">
+                        <span>
+                            Estabeleço limites claros e os mantenho consistentemente
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q5" value="3">
+                        <span>
+                            Tenho dificuldade em dizer “não” e frequentemente trabalho além do horário
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q5" value="1">
+                        <span>
+                            Fico ressentida quando clientes não respeitam meus limites
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q5" value="2">
+                        <span>
+                            Estabeleço limites rígidos, mas sinto culpa ao aplicá-los
+                        </span>
+                    </label>
                 </div>
 
                 <div class="pergunta-item">
                     <p>6. Quando termina meu dia de atendimentos, geralmente:</p>
-                    <label><input type="radio" name="q6" value="0"> <span>Sinto-me energizada e com espaço mental para minha vida pessoal</span></label>
-                    <label><input type="radio" name="q6" value="3"> <span>Estou completamente esgotada e levo as histórias dos clientes para casa</span></label>
-                    <label><input type="radio" name="q6" value="2"> <span>Sinto culpa por não ter feito o suficiente durante as sessões</span></label>
-                    <label><input type="radio" name="q6" value="2"> <span>Reviso mentalmente cada sessão, questionando minhas intervenções</span></label>
+
+                    <label>
+                        <input type="radio" name="q6" value="0">
+                        <span>
+                            Sinto-me energizada e com espaço mental para minha vida pessoal
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q6" value="3">
+                        <span>
+                            Estou completamente esgotada e levo as histórias dos clientes para casa
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q6" value="2">
+                        <span>
+                            Sinto culpa por não ter feito o suficiente durante as sessões
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q6" value="2">
+                        <span>
+                            Reviso mentalmente cada sessão, questionando minhas intervenções
+                        </span>
+                    </label>
                 </div>
 
                 <div class="pergunta-item">
                     <p>7. Meu autocuidado é:</p>
-                    <label><input type="radio" name="q7" value="0"> <span>Uma prioridade genuína em minha vida</span></label>
-                    <label><input type="radio" name="q7" value="2"> <span>Algo que faço apenas quando me sinto culpada por negligenciar</span></label>
-                    <label><input type="radio" name="q7" value="3"> <span>Praticamente inexistente; coloco os clientes sempre em primeiro lugar</span></label>
-                    <label><input type="radio" name="q7" value="1"> <span>Inconsistente; tenho períodos de dedicação seguidos de abandono total</span></label>
+
+                    <label>
+                        <input type="radio" name="q7" value="0">
+                        <span>Uma prioridade genuína em minha vida</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q7" value="2">
+                        <span>
+                            Algo que faço apenas quando me sinto culpada por negligenciar
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q7" value="3">
+                        <span>
+                            Praticamente inexistente; coloco os clientes sempre em primeiro lugar
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q7" value="1">
+                        <span>
+                            Inconsistente; tenho períodos de dedicação seguidos de abandono total
+                        </span>
+                    </label>
                 </div>
 
                 <div class="pergunta-item">
-                    <p>8. Quando sinto que estou no meu limite emocional, minha tendência é:</p>
-                    <label><input type="radio" name="q8" value="0"> <span>Comunicar isso e ajustar minha agenda ou buscar apoio</span></label>
-                    <label><input type="radio" name="q8" value="3"> <span>Continuar atendendo normalmente, escondendo meu estado</span></label>
-                    <label><input type="radio" name="q8" value="1"> <span>Cancelar tudo e me isolar</span></label>
-                    <label><input type="radio" name="q8" value="2"> <span>Aumentar meu trabalho para "distrair" da dor</span></label>
+                    <p>
+                        8. Quando sinto que estou no meu limite emocional,
+                        minha tendência é:
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q8" value="0">
+                        <span>
+                            Comunicar isso, ajustar minha agenda ou buscar apoio
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q8" value="3">
+                        <span>
+                            Continuar atendendo normalmente, escondendo meu estado
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q8" value="1">
+                        <span>Cancelar tudo e me isolar</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q8" value="2">
+                        <span>
+                            Aumentar meu trabalho para “distrair” da dor
+                        </span>
+                    </label>
                 </div>
 
                 <div class="botoes-navegacao">
-                    <button class="btn btn-secondary" onclick="mudarPagina('bloco1')">Voltar</button>
-                    <button class="btn" onclick="mudarPagina('bloco3')">Próximo Bloco</button>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="mudarPagina('bloco1')"
+                    >
+                        Voltar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn"
+                        onclick="mudarPagina('bloco3')"
+                    >
+                        Próximo bloco
+                    </button>
                 </div>
             </div>
         </div>
@@ -526,46 +808,155 @@
         <div id="page-bloco3" class="page">
             <div class="teste-header">
                 <h2>Bloco 3: Valor, Impacto e Merecimento</h2>
+
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 75%;"></div>
                 </div>
             </div>
+
             <div class="bloco-perguntas">
                 <div class="pergunta-item">
-                    <p>9. Quando penso em cobrar por minhas sessões, sinto:</p>
-                    <label><input type="radio" name="q9" value="0"> <span>Que estou oferecendo valor justo e mereço ser remunerada adequadamente</span></label>
-                    <label><input type="radio" name="q9" value="2"> <span>Culpa, como se estivesse "lucrando" com o sofrimento alheio</span></label>
-                    <label><input type="radio" name="q9" value="3"> <span>Que qualquer preço é muito alto para o que ofereço</span></label>
-                    <label><input type="radio" name="q9" value="1"> <span>Raiva ou ressentimento, porque sinto que deveria ser mais valorizada</span></label>
+                    <p>
+                        9. Quando penso em cobrar por minhas sessões, sinto:
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q9" value="0">
+                        <span>
+                            Que estou oferecendo valor justo e mereço ser remunerada adequadamente
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q9" value="2">
+                        <span>
+                            Culpa, como se estivesse “lucrando” com o sofrimento alheio
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q9" value="3">
+                        <span>
+                            Que qualquer preço é muito alto para o que ofereço
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q9" value="1">
+                        <span>
+                            Raiva ou ressentimento, porque sinto que deveria ser mais valorizada
+                        </span>
+                    </label>
                 </div>
 
                 <div class="pergunta-item">
                     <p>10. Meu impacto como terapeuta é:</p>
-                    <label><input type="radio" name="q10" value="0"> <span>Algo que reconheço e celebro regularmente</span></label>
-                    <label><input type="radio" name="q10" value="3"> <span>Algo que duvido constantemente, mesmo com evidências do contrário</span></label>
-                    <label><input type="radio" name="q10" value="2"> <span>Invisível para mim; só vejo o que não consegui fazer</span></label>
-                    <label><input type="radio" name="q10" value="2"> <span>Dependente da validação externa; preciso que clientes me digam que fiz diferença</span></label>
+
+                    <label>
+                        <input type="radio" name="q10" value="0">
+                        <span>Algo que reconheço e celebro regularmente</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q10" value="3">
+                        <span>
+                            Algo que duvido constantemente, mesmo com evidências do contrário
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q10" value="2">
+                        <span>
+                            Invisível para mim; só vejo o que não consegui fazer
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q10" value="2">
+                        <span>
+                            Dependente da validação externa; preciso que clientes me digam que fiz diferença
+                        </span>
+                    </label>
                 </div>
 
                 <div class="pergunta-item">
-                    <p>11. A frase que melhor descreve minha crença sobre meu merecimento profissional é:</p>
-                    <label><input type="radio" name="q11" value="0"> <span>Mereço sucesso, reconhecimento e estabilidade financeira</span></label>
-                    <label><input type="radio" name="q11" value="3"> <span>Preciso sofrer para merecer qualquer coisa</span></label>
-                    <label><input type="radio" name="q11" value="2"> <span>Não mereço ganhar dinheiro fazendo algo que amo</span></label>
-                    <label><input type="radio" name="q11" value="2"> <span>Mereço apenas se sacrificar pelos outros</span></label>
+                    <p>
+                        11. A frase que melhor descreve minha crença sobre meu
+                        merecimento profissional é:
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q11" value="0">
+                        <span>
+                            Mereço sucesso, reconhecimento e estabilidade financeira
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q11" value="3">
+                        <span>Preciso sofrer para merecer qualquer coisa</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q11" value="2">
+                        <span>
+                            Não mereço ganhar dinheiro fazendo algo que amo
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q11" value="2">
+                        <span>Mereço apenas me sacrificar pelos outros</span>
+                    </label>
                 </div>
 
                 <div class="pergunta-item">
-                    <p>12. Quando imagino meu futuro como terapeuta em 5 anos, sinto:</p>
-                    <label><input type="radio" name="q12" value="0"> <span>Esperança, clareza e motivação</span></label>
-                    <label><input type="radio" name="q12" value="3"> <span>Medo de que nada mude ou que piore</span></label>
-                    <label><input type="radio" name="q12" value="2"> <span>Incerteza sobre se continuarei nessa profissão</span></label>
-                    <label><input type="radio" name="q12" value="2"> <span>Pressão para ser "perfeita" e ter sucesso extraordinário</span></label>
+                    <p>
+                        12. Quando imagino meu futuro como terapeuta em cinco
+                        anos, sinto:
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q12" value="0">
+                        <span>Esperança, clareza e motivação</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q12" value="3">
+                        <span>Medo de que nada mude ou que piore</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q12" value="2">
+                        <span>
+                            Incerteza sobre se continuarei nessa profissão
+                        </span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q12" value="2">
+                        <span>
+                            Pressão para ser “perfeita” e ter sucesso extraordinário
+                        </span>
+                    </label>
                 </div>
 
                 <div class="botoes-navegacao">
-                    <button class="btn btn-secondary" onclick="mudarPagina('bloco2')">Voltar</button>
-                    <button class="btn" onclick="calcularResultado()">Ver Resultado</button>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="mudarPagina('bloco2')"
+                    >
+                        Voltar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn"
+                        onclick="calcularResultado()"
+                    >
+                        Ver resultado
+                    </button>
                 </div>
             </div>
         </div>
@@ -573,15 +964,34 @@
         <!-- RESULTADO -->
         <div id="page-resultado" class="page">
             <div class="resultado">
-                <h2>Seu Resultado</h2>
+                <h2>Seu resultado</h2>
+
                 <div class="score-circle" id="score-display">0%</div>
-                <div class="perfil-nome" id="perfil-nome">Carregando...</div>
+
+                <div class="perfil-nome" id="perfil-nome">
+                    Carregando...
+                </div>
+
                 <div class="perfil-analise" id="perfil-analise">
                     Analisando seus resultados...
                 </div>
+
                 <div class="botoes-navegacao">
-                    <button class="btn btn-secondary" onclick="mudarPagina('bloco3')">Voltar</button>
-                    <button class="btn" onclick="mudarPagina('final')">Próximo Passo</button>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        onclick="mudarPagina('bloco3')"
+                    >
+                        Voltar
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn"
+                        onclick="mudarPagina('final')"
+                    >
+                        Próximo passo
+                    </button>
                 </div>
             </div>
         </div>
@@ -590,24 +1000,185 @@
         <div id="page-final" class="page">
             <div class="pagina-final">
                 <div class="foto-container">
-                    <img src="download.jpg" alt="Lucenilda Lima" style="width: 250px; height: 250px; border-radius: 20px; object-fit: cover; box-shadow: 0 10px 30px rgba(201, 149, 111, 0.2); border: 5px solid #d4a574;">
+                    <img src="download.jpg" alt="Lucenilda Lima">
                 </div>
 
                 <div class="bio">
                     <h3>Lucenilda Lima</h3>
-                    <p><strong>Terapeuta Facilitadora Sistêmica</strong></p>
-                    <p>Sou mãe atípica de três filhos e dedico minha vida a conduzir mulheres ao seu despertar, chamado e liberdade emocional. Acredito profundamente que você merece viver uma vida autêntica, plena e livre dos ciclos que a aprisionam.</p>
 
-                    <h4>Minha Abordagem:</h4>
+                    <p>
+                        <strong>Terapeuta facilitadora sistêmica</strong>
+                    </p>
+
+                    <p>
+                        Sou mãe atípica de três filhos e dedico minha vida a
+                        conduzir mulheres ao seu despertar, chamado e liberdade
+                        emocional.
+                    </p>
+
+                    <h4>Minha abordagem:</h4>
+
                     <ul>
-                        <li>Terapia Cognitivo-Comportamental (TCC)</li>
+                        <li>Terapia Cognitivo-Comportamental — TCC</li>
                         <li>Terapia de Reprocessamento Generativo</li>
                         <li>Acolhimento Emocional Genuíno</li>
                         <li>Perspectiva Sistêmica</li>
                     </ul>
 
-                    <h4>Minhas Especialidades:</h4>
-                    <ul>
-                        <li>Ciclos de Autosabotagem Terapêutica</li>
-                        <li>
+                    <h4>Minhas especialidades:</h4>
 
+                    <ul>
+                        <li>Ciclos de Autossabotagem Terapêutica</li>
+                        <li>Resgate da Criança Inteira Ferida</li>
+                        <li>Dependência Emocional</li>
+                        <li>Liberdade Emocional e Despertar Feminino</li>
+                    </ul>
+                </div>
+
+                <div class="contatos">
+                    <p><strong>Conecte-se comigo:</strong></p>
+
+                    <p>
+                        📱 WhatsApp:
+                        <a
+                            href="https://wa.me/5568999385087"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            68 99938-5087
+                        </a>
+                    </p>
+
+                    <p>
+                        📧 E-mail:
+                        <a href="mailto:lucenildalimaterapeuta@gmail.com">
+                            lucenildalimaterapeuta@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+                <!-- MANTENHA AQUI O LINK EXISTENTE DO SEU CTA -->
+                <a
+                    class="btn-cta-final"
+                    href="COLE_AQUI_O_LINK_EXISTENTE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Quero iniciar meu teste
+                </a>
+
+                <div class="rodape">
+                    Lucenilda Lima<br>
+                    Terapeuta facilitadora sistêmica
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mudarPagina(pagina) {
+            const paginas = document.querySelectorAll(".page");
+
+            paginas.forEach(function (paginaAtual) {
+                paginaAtual.classList.remove("active");
+            });
+
+            const paginaDestino = document.getElementById("page-" + pagina);
+
+            if (!paginaDestino) {
+                console.error("Página não encontrada:", pagina);
+                return;
+            }
+
+            paginaDestino.classList.add("active");
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function calcularResultado() {
+            const perguntas = [];
+
+            for (let i = 1; i <= 12; i++) {
+                const resposta = document.querySelector(
+                    'input[name="q' + i + '"]:checked'
+                );
+
+                if (!resposta) {
+                    alert(
+                        "Por favor, responda à pergunta " +
+                        i +
+                        " antes de ver o resultado."
+                    );
+
+                    respostaFaltante(i);
+                    return;
+                }
+
+                perguntas.push(Number(resposta.value));
+            }
+
+            const pontuacao = perguntas.reduce(function (total, valor) {
+                return total + valor;
+            }, 0);
+
+            const pontuacaoMaxima = 36;
+            const percentual = Math.round(
+                (pontuacao / pontuacaoMaxima) * 100
+            );
+
+            let perfil;
+            let analise;
+
+            if (pontuacao <= 10) {
+                perfil = "Ciclo da Autoconfiança em Expansão";
+                analise =
+                    "Você demonstra uma relação relativamente saudável com sua competência, seus limites e seu merecimento profissional. Continue fortalecendo sua autoconfiança, reconhecendo seus resultados e mantendo práticas consistentes de supervisão e autocuidado.";
+            } else if (pontuacao <= 23) {
+                perfil = "Ciclo da Exigência e da Sobrecarga";
+                analise =
+                    "Sua pontuação indica a presença de padrões de autocobrança, dificuldade para respeitar limites e tendência a assumir responsabilidades além do necessário. Esse ciclo pode ser transformado com consciência, acolhimento emocional, limites claros e uma relação mais compassiva com sua trajetória.";
+            } else {
+                perfil = "Ciclo Profundo de Autossabotagem";
+                analise =
+                    "Sua pontuação sugere que crenças de desmerecimento, insegurança e sobrecarga podem estar interferindo de maneira significativa em sua prática terapêutica. Este resultado não é um diagnóstico, mas um convite para olhar com cuidado para suas necessidades emocionais e buscar apoio terapêutico ou supervisão qualificada.";
+            }
+
+            document.getElementById("score-display").textContent =
+                percentual + "%";
+
+            document.getElementById("perfil-nome").textContent = perfil;
+
+            document.getElementById("perfil-analise").textContent = analise;
+
+            mudarPagina("resultado");
+        }
+
+        function respostaFaltante(numeroPergunta) {
+            const pergunta = document.querySelector(
+                'input[name="q' + numeroPergunta + '"]'
+            );
+
+            if (pergunta) {
+                const bloco = pergunta.closest(".page");
+
+                if (bloco) {
+                    bloco.classList.add("active");
+
+                    document.querySelectorAll(".page").forEach(function (pagina) {
+                        if (pagina !== bloco) {
+                            pagina.classList.remove("active");
+                        }
+                    });
+
+                    pergunta.closest(".pergunta-item").scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
